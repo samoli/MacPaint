@@ -1,0 +1,159 @@
+; --> MyHeapAsm.TEXT, a subset of MemTraps.text used by MacPaint
+;
+
+          .INCLUDE  MAC:SysMacs.Text
+          .INCLUDE  MAC:SysEqu.Text
+
+
+
+          .PROC MoreMasters
+;-------------------------------------------------------
+;
+;  PROCEDURE MoreMasters;
+;
+         _MoreMasters
+         RTS
+
+
+         .FUNC MemError
+         .DEF  ErrorCode
+;----------------------------------------------------------------------
+;
+; Function MemError: ErrCode;
+;
+         Move.W   ErrorCode,4(SP)   ;last error
+         RTS
+;
+; Holds the last result code from the Memory Manager
+;
+ErrorCode .Word   0
+
+
+
+          .FUNC MaxMem
+;-------------------------------------------------------
+;
+;  FUNCTION MaxMem(VAR grow: LongInt): LongInt;
+;
+           Move.L  (SP)+,A1        ;get return address
+           _MaxMem                 ;let OS do it
+           Move.L  A0,D1           ;max growth allowed
+           Move.L  (SP)+,A0        ;get the pointer to VAR grow
+           Move.L  D1,(A0)
+           Move.L  D0,(SP)         ;save result
+           Jmp     (A1)            ;return to caller
+
+
+
+          .FUNC FreeMem
+;-------------------------------------------------------
+;
+;  FUNCTION FreeMem: LongInt;
+;
+          _FreeMem
+          MOVE.L    D0,4(SP)
+          RTS
+
+
+
+          .PROC SetApplLimit,1
+          .REF  ErrorCode
+;-------------------------------------------------------
+;
+;  PROCEDURE SetApplLimit(zoneLimit: Ptr);
+;
+          MOVE.L    (SP)+,A1       ;get return address
+          MOVE.L    (SP)+,A0       ;get zoneLimit
+          _SetApplLimit            ;trap to memory manager
+          LEA      ErrorCode,A0    ;point to LastPH save location
+          Move.W   D0,(A0)         ;save error
+          JMP      (A1)            ;Return
+
+
+
+          .PROC SetGrowZone
+;-------------------------------------------------------
+;
+;  PROCEDURE SetGrowZone(growProc: ProcPtr);;
+;
+          MOVE.L    (SP)+,A1       ;get return address
+          MOVE.L    (SP)+,A0       ;get procedure pointer
+          _SetGrowZone             ;trap to memory manager
+          JMP       (A1)           ;and return
+
+
+
+          .FUNC NewHandle
+;-------------------------------------------------------
+;
+;  FUNCTION NewHandle(byteCount: LongInt): Handle;
+;
+          MOVE.L    (SP)+,A1       ;get return address
+          MOVE.L    (SP)+,D0       ;get the handle size
+          _NewHandle
+          MOVE.L    A0,(SP)
+          JMP       (A1)
+
+
+
+          .PROC DisposHandle
+;-------------------------------------------------------
+;
+;  PROCEDURE DisposHandle(h: Handle);
+;
+          MOVE.L    (SP)+,A1       ;get return address
+          MOVE.L    (SP)+,A0       ;get the handle
+          _DisposHandle
+          JMP       (A1)
+
+
+
+          .PROC HLock
+;-------------------------------------------------------
+;
+;  PROCEDURE HLock(h: Handle);
+;
+          MOVE.L    (SP)+,A1       ;get return address
+          MOVE.L    (SP)+,A0       ;get the handle
+          BSET      #LOCK,(A0)     ;set lock bit in master
+          JMP       (A1)           ;and return
+
+
+
+          .PROC HUnLock
+;-------------------------------------------------------
+;
+;  PROCEDURE HUnLock(h: Handle);
+;
+          MOVE.L    (SP)+,A1       ;get return address
+          MOVE.L    (SP)+,A0       ;get the handle
+          BCLR      #LOCK,(A0)     ;clear lock bit in master
+          JMP       (A1)           ;and return
+
+
+
+          .PROC HPurge
+;-------------------------------------------------------
+;
+;  PROCEDURE HLock(h: Handle);
+;
+          MOVE.L    (SP)+,A1       ;get return address
+          MOVE.L    (SP)+,A0       ;get the handle
+          BSET      #PURGE,(A0)    ;set purge bit in master
+          JMP       (A1)           ;and return
+
+
+
+          .PROC HNoPurge
+;-------------------------------------------------------
+;
+;  PROCEDURE HUnLock(h: Handle);
+;
+          MOVE.L    (SP)+,A1       ;get return address
+          MOVE.L    (SP)+,A0       ;get the handle
+          BCLR      #PURGE,(A0)    ;clear purge bit in master
+          JMP       (A1)           ;and return
+
+
+
+          .END
