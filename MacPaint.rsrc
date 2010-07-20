@@ -1,0 +1,918 @@
+*  MacPaint Resource Definition File
+*
+*
+
+M512:MacPaint.Rsrc
+
+
+TYPE CODE
+  OBJ:TEMP,0
+
+* Version string
+
+Type MPNT = STR
+        ,0
+MacPaint Version 1.3
+
+Type BNDL = HEXA
+
+        ,128
+4D504E54 0000
+0001
+49434E23 0001
+0000 0080
+0001 0081
+46524546 0001
+0000 0080
+0001 0081
+
+Type FREF = HEXA
+
+        ,128
+4150504C
+0000
+00
+
+        ,129
+504E5447
+0001
+00
+
+Type ICN# = HEXA
+
+*MacPaint Application icon and mask
+        ,128
+00010000
+00028000
+00044000
+00082000
+00107000
+0020F800
+0041FC00
+0083FA00
+0102F100
+0205E080
+0409C040
+08028020
+10010010
+20020008
+40003F04
+80084082
+40108041
+20313022
+1039C814
+081E7F8F
+04023007
+02010007
+01008007
+00806007
+00401FE7
+0020021F
+00100407
+00080800
+00041000
+00022000
+00014000
+00008000
+00010000
+00038000
+0007C000
+000FE000
+001FF000
+003FF800
+007FFC00
+00FFFE00
+01FFFF00
+03FFFF80
+07FFFFC0
+0FFFFFE0
+1FFFFFF0
+3FFFFFF8
+7FFFFFFC
+FFFFFFFE
+7FFFFFFF
+3FFFFFFE
+1FFFFFFC
+0FFFFFFF
+07FFFFFF
+03FFFFFF
+01FFFFFF
+00FFFFFF
+007FFFFF
+003FFE1F
+001FFC07
+000FF800
+0007F000
+0003E000
+0001C000
+00008000
+
+*Document Icon (MacPaint) and mask
+       ,129
+0FFFFE00
+08000300
+09D00280
+09D00240
+09D00220
+09D00210
+09D003F8
+09D00008
+09D00008
+09D00008
+09D00008
+09D00008
+09F00008
+09100008
+09100008
+09100008
+09100008
+09100008
+08E00008
+09F00008
+09F00008
+09F80008
+09F80008
+09E85FE8
+09F80BE8
+08D03FE8
+08F0FFE8
+08703FE8
+0819FFE8
+08000008
+08000008
+0FFFFFF8
+0FFFFE00
+0FFFFF00
+0FFFFF80
+0FFFFFC0
+0FFFFFE0
+0FFFFFF0
+0FFFFFF8
+0FFFFFF8
+0FFFFFF8
+0FFFFFF8
+0FFFFFF8
+0FFFFFF8
+0FFFFFF8
+0FFFFFF8
+0FFFFFF8
+0FFFFFF8
+0FFFFFF8
+0FFFFFF8
+0FFFFFF8
+0FFFFFF8
+0FFFFFF8
+0FFFFFF8
+0FFFFFF8
+0FFFFFF8
+0FFFFFF8
+0FFFFFF8
+0FFFFFF8
+0FFFFFF8
+0FFFFFF8
+0FFFFFF8
+0FFFFFF8
+0FFFFFF8
+
+
+*******End of MacPaint Export Bundle**********
+
+
+Type MENU
+
+  ,1 (4)
+@
+  About MacPaint...
+  (-
+
+  ,2 (4)
+File
+  New
+  Open...
+  Close
+  Save
+  Save As...
+  Revert
+  Print Draft
+  Print Final
+  Print Catalog
+  Quit
+
+  ,3 (4)
+Edit
+  Undo/Z
+  (-
+  Cut/X
+  Copy/C
+  Paste/V
+  Clear
+  (-
+  Invert
+  Fill
+  Trace Edges/E
+  Flip Horizontal
+  Flip Vertical
+  Rotate
+
+  ,4 (4)
+Goodies
+  Grid
+  FatBits
+  Show Page
+  Edit Pattern
+  Brush Shape
+  Brush Mirrors
+  Introduction
+  Short Cuts
+
+  ,5 (4)
+Font
+
+  ,6 (4)
+FontSize
+  9 point
+  10
+  12
+  14
+  18
+  24
+  36
+  48
+  72
+
+  ,7 (4)
+Style
+  Plain/P
+  Bold<B/B
+  Italic<I/I
+  Underline<U/U
+  Outline<O/O
+  Shadow<S/S
+  (-
+  Align Left/L
+  Align Middle/M
+  Align Right/R
+
+
+Type FONT
+
+*choose a weird font number to avoid conflicts
+  rsrc:PaintFont,249@12 (4)
+
+
+
+Type DLOG
+
+*CLOSE Dialog
+        ,2001 (32)
+100 150 194 394
+Visible 1 NoGoAway 0
+2001
+A
+
+Type DITL
+
+*CLOSE dialog items
+        ,2001 (32)
+4
+BtnItem Enabled
+38  16  56  90
+Yes
+
+BtnItem Enabled
+62  16  80  90
+No
+
+BtnItem Enabled
+62  154  80  228
+Cancel
+
+StatText Disabled
+12  16  28  240
+Save changes before closing?
+
+
+
+Type DLOG
+
+*QUIT Dialog
+        ,2002 (32)
+100 150 194 394
+Visible 1 NoGoAway 0
+2002
+B
+
+Type DITL
+
+*QUIT dialog items
+        ,2002 (32)
+4
+BtnItem Enabled
+38  16  56  90
+Yes
+
+BtnItem Enabled
+62  16  80  90
+No
+
+BtnItem Enabled
+62  154  80  228
+Cancel
+
+StatText Disabled
+12  16  28  240
+Save changes before quitting?
+
+
+
+Type DLOG
+
+*Pattern Edit dialog
+        ,2003 (32)
+76 116 204 292
+Visible 1 NoGoAway 0
+2003
+C
+
+Type DITL
+
+*Pattern Edit dialog items
+        ,2003 (32)
+3
+BtnItem Enabled
+94 16 112 80
+OK
+
+BtnItem Enabled
+94  96  112  160
+Cancel
+
+UserField Enabled
+16 16 80 80
+
+
+
+Type DLOG
+
+*Brush Shape dialog
+        ,2004 (32)
+74 120 234 408
+Visible 1 NoGoAway 0
+2004
+D
+
+Type DITL
+
+*Brush Shape dialog items
+        ,2004 (32)
+1
+UserField Enabled
+16 16 144 272
+
+
+Type DLOG
+
+*Mirror dialog
+        ,2005 (32)
+80 116 256 292
+Visible 1 NoGoAway 0
+2005
+E
+
+Type DITL
+
+*Mirror dialog items
+        ,2005 (32)
+3
+BtnItem Enabled
+144 16 160 80
+OK
+
+BtnItem Enabled
+144  96  160  160
+None
+
+UserField Enabled
+16 32 128 144
+
+
+
+Type DLOG
+
+*About MacPaint dialog
+        ,2006 (32)
+84 110 178 466
+Visible 1 NoGoAway 0
+2006
+F
+
+Type DITL
+
+*About MacPaint dialog items
+        ,2006 (32)
+5
+BtnItem Enabled
+56  274  76  345
+OK
+
+StatText Disabled
+14  6  30  340
+MacPaint version 1.3
+
+StatText Disabled
+38  6  54  340
+written by Bill Atkinson
+
+StatText Disabled
+62  6  78  340
+Copyright 1983, Apple Computer Inc.
+
+IconItem Disabled
+16  290  48  322
+2006
+
+TYPE ICON
+        ,2006 (32)
+
+* BILL ICON
+0017C300
+00BFAF80
+01B7FFC0
+06EFB7E0
+03F73AF0
+07D40960
+05C20330
+0FA00230
+07800138
+1D8001FC
+178000DC
+0F8000FC
+3FBA2F6C
+1BBDDC88
+3B566A4C
+190A1D4C
+3C024054
+0C8640BC
+07742E3C
+0F034034
+058FF87A
+029BECD0
+009C1CA0
+0043E080
+0061C280
+00400070
+0050044E
+00C80861
+0783E060
+18800040
+20C000C0
+00600300
+
+
+
+Type ALRT
+
+*Revert doc alert
+        ,2101 (32)
+100  120  190  390
+2101
+4444
+
+Type DITL
+
+*Revert doc alert items
+        ,2101 (32)
+4
+BtnItem Enabled
+62  78  80  158
+OK
+
+BtnItem Enabled
+62  174  80  254
+Cancel
+
+StatText Disabled
+10  80  50  260
+Revert to the last version saved ?
+
+IconItem Disabled
+20  20  52  52
+2
+
+
+
+Type ALRT
+
+*Disk Full Alert
+        ,2102 (32)
+100  120  200  420
+2102
+5555
+
+Type DITL
+
+*Disk Full alert items
+        ,2102 (32)
+3
+BtnItem Enabled
+64  200  82  280
+OK
+
+StatText Disabled
+10  70  60  290
+The disk is almost full.  Delete some documents or change disks.
+
+IconItem Disabled
+20  20  52  52
+0
+
+
+Type ALRT
+
+*Write Full Alert
+        ,2103 (32)
+100  120  190  420
+2103
+5555
+
+Type DITL
+
+*Write Full alert items
+        ,2103 (32)
+3
+BtnItem Enabled
+60  200  80  280
+OK
+
+StatText Disabled
+10  70  50  290
+The disk is full.  Try another disk.
+
+IconItem Disabled
+20  20  52  52
+0
+
+
+Type ALRT
+
+*Write Protect Alert
+        ,2104 (32)
+100  120  190  420
+2104
+5555
+
+Type DITL
+
+*Write Protect alert items
+        ,2104 (32)
+3
+BtnItem Enabled
+60  200  80  280
+OK
+
+StatText Disabled
+10  70  50  290
+The disk is locked.
+
+IconItem Disabled
+20  20  52  52
+0
+
+
+Type ALRT
+
+*Write Error Alert
+        ,2105 (32)
+100  120  190  420
+2105
+5555
+
+Type DITL
+
+*Write Error alert items
+        ,2105 (32)
+3
+BtnItem Enabled
+60  200  80  280
+OK
+
+StatText Disabled
+10  70  50  290
+MacPaint is having trouble writing.  Try another disk.
+
+IconItem Disabled
+20  20  52  52
+0
+
+
+
+Type ALRT
+
+*Read Error Alert
+        ,2106 (32)
+100  120  190  420
+2106
+5555
+
+Type DITL
+
+*Read Error alert items
+        ,2106 (32)
+3
+BtnItem Enabled
+60  200  80  280
+OK
+
+StatText Disabled
+10  70  50  290
+MacPaint is having trouble reading your disk.
+
+IconItem Disabled
+20  20  52  52
+0
+
+
+Type ALRT
+
+*Read Scrap Alert
+        ,2107 (32)
+100  120  190  420
+2107
+5555
+
+Type DITL
+
+*Read Scrap alert items
+        ,2107 (32)
+3
+BtnItem Enabled
+60  200  80  280
+OK
+
+StatText Disabled
+10  70  50  290
+MacPaint is having trouble reading the scrap.
+
+IconItem Disabled
+20  20  52  52
+0
+
+
+Type ALRT
+
+*Write Scrap Alert
+        ,2108 (32)
+100  120  190  420
+2108
+5555
+
+Type DITL
+
+*Write Scrap alert items
+        ,2108 (32)
+3
+BtnItem Enabled
+60  200  80  280
+Cancel
+
+StatText Disabled
+10  70  50  290
+MacPaint is having trouble writing the scrap.
+
+IconItem Disabled
+20  20  52  52
+0
+
+
+
+Type ALRT
+
+*WorkSpace Alert
+        ,2109 (32)
+100  120  190  420
+2109
+5555
+
+Type DITL
+
+*WorkSpace alert items
+        ,2109 (32)
+3
+BtnItem Enabled
+60  200  80  280
+Cancel
+
+StatText Disabled
+10  70  50  290
+MacPaint can't find work space on the default drive.
+
+IconItem Disabled
+20  20  52  52
+0
+
+
+Type ALRT
+
+*MemFull Alert
+        ,2110 (32)
+100  120  190  420
+2110
+5555
+
+
+Type DITL
+
+*MemFull alert items
+        ,2110 (32)
+3
+BtnItem Enabled
+60  200  80  280
+Cancel
+
+StatText Disabled
+10  70  50  290
+There is not enough room in memory for MacPaint.
+
+IconItem Disabled
+20  20  52  52
+0
+
+
+Type ALRT
+
+*File Locked Alert
+        ,2111 (32)
+100  120  190  420
+2111
+5555
+
+Type DITL
+
+*File Locked alert items
+        ,2111 (32)
+3
+BtnItem Enabled
+60  200  80  280
+Cancel
+
+StatText Disabled
+10  70  50  290
+MacPaint can't write to a locked file.
+
+IconItem Disabled
+20  20  52  52
+0
+
+
+Type ALRT
+
+*Not PNTG alert
+        ,2112 (32)
+100  120  190  420
+2112
+5555
+
+Type DITL
+
+*Not PNTG alert items
+        ,2112 (32)
+3
+BtnItem Enabled
+60  200  80  280
+Cancel
+
+StatText Disabled
+10  70  50  290
+Existing file is not a MacPaint document.
+
+IconItem Disabled
+20  20  52  52
+0
+
+
+Type ALRT
+
+*Big Scrap Alert
+        ,2113 (32)
+100  120  190  420
+2113
+5555
+
+
+Type DITL
+
+*big scrap alert items
+        ,2113 (32)
+3
+BtnItem Enabled
+60  200  80  280
+Cancel
+
+StatText Disabled
+10  70  50  290
+The scrap is too big to run MacPaint.
+
+IconItem Disabled
+20  20  52  52
+0
+
+
+Type ALRT
+
+*no room alert
+        ,2114 (32)
+100  120  190  420
+2114
+5555
+
+Type DITL
+
+*no room alert items
+        ,2114 (32)
+3
+BtnItem Enabled
+60  200  80  280
+Cancel
+
+StatText Disabled
+10  70  50  290
+Not enough room to save, try another disk.
+
+IconItem Disabled
+20  20  52  52
+0
+
+
+Type ALRT
+
+*oldPrDrvr alert
+        ,2115 (32)
+100  120  190  420
+2115
+5555
+
+Type DITL
+
+*oldPrDrvr alert items
+        ,2115 (32)
+3
+BtnItem Enabled
+60  200  80  280
+Cancel
+
+StatText Disabled
+10  70  50  290
+You have an old Printer Driver.  Put new System on your disk.
+
+IconItem Disabled
+20  20  52  52
+0
+
+
+Type STR
+
+*Miscellaneous Strings
+          ,2201 (36)
+MacPaint by Bill Atkinson
+
+          ,2202 (36)
+,.
+
+          ,2203 (32)
+MacPaint documents on disk
+
+          ,2204 (32)
+untitled
+
+          ,2205 (32)
+rescue
+
+          ,2206 (32)
+Save document as:
+
+
+
+TYPE CNTL
+          ,2501 (36)
+OK
+172 320 190 400
+Invisible
+0
+1
+0 0 0
+
+          ,2502 (36)
+Cancel
+206 320 224 400
+Invisible
+0
+2
+0 0 0
+
+
+
+
+TYPE PICT
+
+RSRC:INTRO.PICT,2400 (32)
+RSRC:SHORT.PICT,2401 (32)
